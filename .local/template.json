@@ -1,0 +1,27 @@
+{
+  "DefaultProjectDescription": "UiPath REFramework Template",
+  "DefaultProjectName": "Parallel Background Process",
+  "Dependencies": {
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
+    "UiPath.Excel.Activities": "[2.8.0-preview]",
+    "UiPath.Mail.Activities": "[1.8.0-preview]",
+    "UiPath.System.Activities": "[19.12.0-preview]",
+    "UiPath.UIAutomation.Activities": "[19.12.0-preview]"
+  },
+  "Description": "This Framework, based on the RE-Framework, is meant to process QueueItems in parallel. It is usefull when processes or parts of it intreacts with Webapis or other background stuff.",
+  "DisplayPriority": 0,
+  "ExceptionHandlerWorkflow": null,
+  "IconUri": "CustomProcessVBIcon",
+  "IsBlank": false,
+  "Label": "Prozess",
+  "MainFile": "Main.xaml",
+  "Name": "Parallel Background RE Framework",
+  "NewTemplateTitle": null,
+  "PrivateFiles": null,
+  "OutputType": 0,
+  "ProjectProfile": 0,
+  "ExpressionLanguage": 0,
+  "SupportsPersistence": false,
+  "RequiresUserInteraction": false,
+  "AutoDispose": false
+}

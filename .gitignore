@@ -39,6 +39,7 @@ desktop.ini
 
 # It is a Template. A Template has a ".local" Folder not a project.json.
 project.json
+.settings
 
 # Dont commmit individual test file.
 _Test.xaml
