@@ -2,7 +2,6 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
     <x:Property Name="in_ConfigurationPath" Type="InArgument(x:String)" />
-    <x:Property Name="in_MaxParallelExecutions" Type="InArgument(x:String)" />
     <x:Property Name="in_WorkerLimit" Type="InArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
@@ -81,7 +80,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Background Worker" DisplayName="Worker State" sap:VirtualizedContainerService.HintSize="255,104" sap2010:WorkflowViewState.IdRef="State_4">
+    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Background Worker" DisplayName="Worker State" sap:VirtualizedContainerService.HintSize="472,845" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
         <ParallelForEach x:TypeArguments="x:Int32" DisplayName="Parallel For Each" sap:VirtualizedContainerService.HintSize="426,458" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_1" Values="[Enumerable.Range(1, cint(Config(&quot;BusinessProcess_ParallelExecutions&quot;)))]">
           <ActivityAction x:TypeArguments="x:Int32">
@@ -205,12 +204,12 @@
           <Transition.Action>
             <ui:LogMessage DisplayName="Log message (No more transations available)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;All worker finished there work&quot;]" />
           </Transition.Action>
-          <Transition.Condition>[TransactionItem Is Nothing]</Transition.Condition>
+          <Transition.Condition>True</Transition.Condition>
         </Transition>
       </State.Transitions>
     </State>
     <x:Reference>__ReferenceID0</x:Reference>
-    <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Init State" sap:VirtualizedContainerService.HintSize="811,2504" sap2010:WorkflowViewState.IdRef="State_2">
+    <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Init State" sap:VirtualizedContainerService.HintSize="254,103" sap2010:WorkflowViewState.IdRef="State_2">
       <State.Entry>
         <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="765,2090" sap2010:WorkflowViewState.IdRef="TryCatch_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -421,7 +420,6 @@
       </State.Transitions>
     </State>
     <StateMachine.Variables>
-      <Variable x:TypeArguments="ui:QueueItem" sap2010:Annotation.AnnotationText="Transaction item to be processed. The type of this variable can be changed to match the transaction type in the process. For example, when processing data from a spreadsheet that is read into a DataTable, this type can be changed to DataRow. In another scenario, if each transactions are paths to invoice files to be processed, this type can be changed to String." Name="TransactionItem" />
       <Variable x:TypeArguments="s:Exception" sap2010:Annotation.AnnotationText="Exception variable that is used during transitions between states." Name="SystemError" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data. When passing configuration data between different states, it is recommended to add the data to this structure instead of creating new variables and arguments." Name="Config" />
       <Variable x:TypeArguments="scc:BlockingCollection(x:Object)" sap2010:Annotation.AnnotationText="This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet)." Name="TransactionData" />

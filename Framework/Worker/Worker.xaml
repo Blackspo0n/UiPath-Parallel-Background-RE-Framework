@@ -577,7 +577,6 @@
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Allow the optional addition of information about the transaction item." Name="TransactionField2" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Allow the optional addition of information about the transaction item." Name="TransactionField1" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. Examples of IDs include invoice number, client number, filename, etc." Name="TransactionID" />
-      <Variable x:TypeArguments="scc:BlockingCollection(x:Object)" sap2010:Annotation.AnnotationText="This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet)." Name="TransactionData" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="WorkerReferences" />
     </StateMachine.Variables>
   </StateMachine>
