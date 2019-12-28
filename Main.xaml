@@ -81,7 +81,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Background Worker" DisplayName="Worker State" sap:VirtualizedContainerService.HintSize="472,845" sap2010:WorkflowViewState.IdRef="State_4">
+    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Background Worker" DisplayName="Worker State" sap:VirtualizedContainerService.HintSize="255,104" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
         <ParallelForEach x:TypeArguments="x:Int32" DisplayName="Parallel For Each" sap:VirtualizedContainerService.HintSize="426,458" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_1" Values="[Enumerable.Range(1, cint(Config(&quot;BusinessProcess_ParallelExecutions&quot;)))]">
           <ActivityAction x:TypeArguments="x:Int32">
@@ -210,7 +210,7 @@
       </State.Transitions>
     </State>
     <x:Reference>__ReferenceID0</x:Reference>
-    <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Init State" sap:VirtualizedContainerService.HintSize="254,103" sap2010:WorkflowViewState.IdRef="State_2">
+    <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Init State" sap:VirtualizedContainerService.HintSize="811,2504" sap2010:WorkflowViewState.IdRef="State_2">
       <State.Entry>
         <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="765,2090" sap2010:WorkflowViewState.IdRef="TryCatch_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -329,7 +329,7 @@
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
-                        <InArgument x:TypeArguments="scc:BlockingCollection(x:Object)" x:Key="out_TransactionData">[TransactionData]</InArgument>
+                        <OutArgument x:TypeArguments="scc:BlockingCollection(x:Object)" x:Key="out_TransactionData">[TransactionData]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>
