@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>654,783</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>654,823</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -80,7 +80,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Background Worker" DisplayName="Worker State" sap:VirtualizedContainerService.HintSize="472,845" sap2010:WorkflowViewState.IdRef="State_4">
+    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Background Worker" DisplayName="Worker State" sap:VirtualizedContainerService.HintSize="255,104" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
         <ParallelForEach x:TypeArguments="x:Int32" DisplayName="Parallel For Each" sap:VirtualizedContainerService.HintSize="426,458" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_1" Values="[Enumerable.Range(1, cint(Config(&quot;BusinessProcess_ParallelExecutions&quot;)))]">
           <ActivityAction x:TypeArguments="x:Int32">
@@ -129,9 +129,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End State" sap:VirtualizedContainerService.HintSize="144,119" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+            <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End State" sap:VirtualizedContainerService.HintSize="480,654" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
               <State.Entry>
-                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="438,533" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="434,514" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,31 +139,19 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence sap:VirtualizedContainerService.HintSize="393,306" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DisposeProcessData workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Framework\Process\DisposeProcessData.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
+                        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_ProcessReferences">[ProcessReferences]</InOutArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,352" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="351,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework/Application/CloseAllApplications.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DisposeProcessData workflow" sap:VirtualizedContainerService.HintSize="351,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Framework\Process\DisposeProcessData.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
-                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_ProcessReferences">[ProcessReferences]</InOutArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                    </Sequence>
-                  </TryCatch.Try>
-                  <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -171,18 +159,21 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Failed to close applications, so kill processes" sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                        <Sequence DisplayName="Failed to dispose process data. set it to nothing" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_26">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log message (Failed to close applications)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Warn" Message="[&quot;Applications failed to close normally. &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
-                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow (End process)" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Framework/Application/KillAllProcesses.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
+                          <ui:LogMessage DisplayName="Log message (Failed to close applications)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Warn" Message="[String.Format(Config(&quot;LogMessage_DisposingProcessDataException&quot;).ToString, exception.Message, exception.Source)]" />
+                          <Assign DisplayName="Empty the Dictionary" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[ProcessReferences]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
                         </Sequence>
                       </ActivityAction>
                     </Catch>
@@ -211,7 +202,7 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Init State" sap:VirtualizedContainerService.HintSize="254,103" sap2010:WorkflowViewState.IdRef="State_2">
       <State.Entry>
-        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="765,2090" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="819,2138" sap2010:WorkflowViewState.IdRef="TryCatch_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -219,14 +210,14 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
-            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="727,1863" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="781,1911" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign SystemError (initialization)" sap:VirtualizedContainerService.HintSize="685,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign DisplayName="Assign SystemError (initialization)" sap:VirtualizedContainerService.HintSize="739,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                 <Assign.To>
                   <OutArgument x:TypeArguments="s:Exception">[SystemError]</OutArgument>
                 </Assign.To>
@@ -234,7 +225,7 @@
                   <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
                 </Assign.Value>
               </Assign>
-              <If sap2010:Annotation.AnnotationText="An uninitialized Config dictionary indicates that this is the first run of the process." Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="685,1544" sap2010:WorkflowViewState.IdRef="If_1">
+              <If sap2010:Annotation.AnnotationText="An uninitialized Config dictionary indicates that this is the first run of the process." Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="739,1592" sap2010:WorkflowViewState.IdRef="If_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -243,13 +234,13 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="First run" sap:VirtualizedContainerService.HintSize="526,1369" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <Sequence DisplayName="First run" sap:VirtualizedContainerService.HintSize="580,1417" sap2010:WorkflowViewState.IdRef="Sequence_17">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="484,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework/Settings/InitSettingsFromExcel.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="538,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework/Settings/InitSettingsFromExcel.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">[in_ConfigurationPath]</InArgument>
                         <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings", "Constants"}]</InArgument>
@@ -257,7 +248,7 @@
                         <OutArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="out_Credentials">[Credentials]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <If sap2010:Annotation.AnnotationText="Overwrite queue name from in configuration file in case the argument OrchestratorQueueName is specified.&#xA;This provides backward compatibility with &lt; 2018.3 and allows default values to come from Config.xlsx" Condition="[Not string.IsNullOrEmpty(in_OrchestratorQueueName)]" DisplayName="If OrchestratorQueueName is specified" sap:VirtualizedContainerService.HintSize="484,198" sap2010:WorkflowViewState.IdRef="If_10">
+                    <If sap2010:Annotation.AnnotationText="Overwrite queue name from in configuration file in case the argument OrchestratorQueueName is specified.&#xA;This provides backward compatibility with &lt; 2018.3 and allows default values to come from Config.xlsx" Condition="[Not string.IsNullOrEmpty(in_OrchestratorQueueName)]" DisplayName="If OrchestratorQueueName is specified" sap:VirtualizedContainerService.HintSize="538,198" sap2010:WorkflowViewState.IdRef="If_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -276,7 +267,7 @@
                         </Assign>
                       </If.Then>
                     </If>
-                    <If sap2010:Annotation.AnnotationText="Overwrite Worker_Limit from in configuration file in case the argument in_WorkerLimit is specified." Condition="[in_WorkerLimit &lt;&gt; 0]" DisplayName="If  WorkerLimit is specified" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="If_11">
+                    <If sap2010:Annotation.AnnotationText="Overwrite Worker_Limit from in configuration file in case the argument in_WorkerLimit is specified." Condition="[in_WorkerLimit &lt;&gt; 0]" DisplayName="If  WorkerLimit is specified" sap:VirtualizedContainerService.HintSize="538,250" sap2010:WorkflowViewState.IdRef="If_11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -295,7 +286,7 @@
                         </Assign>
                       </If.Then>
                     </If>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Kills all Windows processes representing applications used in this business process to assure that the execution starts in a clean state.&#xA;Since the applications are assumed to be already closed, CloseAllApplications is skipped and just KillAllProcess is invoked." DisplayName="Invoke KillAllProcesses workflow (first run)" sap:VirtualizedContainerService.HintSize="484,189" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Framework/Application/KillAllProcesses.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Kills all Windows processes representing applications used in this business process to assure that the execution starts in a clean state.&#xA;Since the applications are assumed to be already closed, CloseAllApplications is skipped and just KillAllProcess is invoked." DisplayName="Invoke KillAllProcesses workflow (first run)" sap:VirtualizedContainerService.HintSize="538,189" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Framework/Application/KillAllProcesses.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:InvokeWorkflowFile.Arguments>
@@ -307,7 +298,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
-                    <ui:AddLogFields sap2010:Annotation.AnnotationText="Add the process name to the logs generated after this point. &#xA;This log field can be used to create reports and visualizations about the process." DisplayName="Add Log Fields (BusinessProcessName)" sap:VirtualizedContainerService.HintSize="484,139" sap2010:WorkflowViewState.IdRef="AddLogFields_2">
+                    <ui:AddLogFields sap2010:Annotation.AnnotationText="Add the process name to the logs generated after this point. &#xA;This log field can be used to create reports and visualizations about the process." DisplayName="Add Log Fields (BusinessProcessName)" sap:VirtualizedContainerService.HintSize="538,139" sap2010:WorkflowViewState.IdRef="AddLogFields_2">
                       <ui:AddLogFields.Fields>
                         <InArgument x:TypeArguments="x:String" x:Key="logF_BusinessProcessName">[Config("logF_BusinessProcessName").ToString]</InArgument>
                       </ui:AddLogFields.Fields>
@@ -317,33 +308,36 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:AddLogFields>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitProcessData workflow" sap:VirtualizedContainerService.HintSize="484,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Framework\Process\InitProcessData.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
-                        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_ProcessReferences">[ProcessReferences]</InOutArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
-                    </ui:InvokeWorkflowFile>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitTransactionData workflow" sap:VirtualizedContainerService.HintSize="484,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Transaction\InitTransactionData.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
-                        <OutArgument x:TypeArguments="scc:BlockingCollection(x:Object)" x:Key="out_TransactionData">[TransactionData]</OutArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
-                    </ui:InvokeWorkflowFile>
+                    <If sap2010:Annotation.AnnotationText="if we work with queues, no transaction data need to be initialized. " Condition="[Not cbool(Config(&quot;Framework_UseOrchestratorQueue&quot;))]" DisplayName="If we work with local datastructures like DataTable" sap:VirtualizedContainerService.HintSize="538,262" sap2010:WorkflowViewState.IdRef="If_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitTransactionData workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework/Transaction/DataStructure/InitTransactionData.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
+                            <OutArgument x:TypeArguments="scc:BlockingCollection(x:Object)" x:Key="out_TransactionData">[TransactionData]</OutArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                      </If.Then>
+                    </If>
                   </Sequence>
                 </If.Then>
               </If>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="685,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework/Application/InitAllApplications.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitProcessData workflow" sap:VirtualizedContainerService.HintSize="739,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Framework\Process\InitProcessData.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials">[Credentials]</InArgument>
+                  <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_ProcessReferences">[ProcessReferences]</InOutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </Sequence>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="731,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="785,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
