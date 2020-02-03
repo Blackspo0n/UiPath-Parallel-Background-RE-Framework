@@ -81,5 +81,5 @@ The documentation need to be extended as well.
 - Make an Workflow Template for UiPath Go
 
 # Credits goes to:
-- UiPath for providing the RE-Framework
+- UiPath for providing the RE-Framework ([MIT License](https://github.com/UiPath/ReFrameWork/blob/master/LICENSE))
 - Max (FlMa - co-worker from cronos automation GmbH) to bring this idea into my mind
