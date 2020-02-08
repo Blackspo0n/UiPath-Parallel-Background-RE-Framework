@@ -6,6 +6,13 @@ This Framework can spawn workers up to a configurable limit. It´s datasource fo
 
 It is build on top of the [RE-Framework](https://github.com/UiPath/ReFrameWork) and tries to improve things that IMHO the RE-Framework lacks behind.
 
+## How To Install
+This Framework is a template project. It doesn´t have a *project.json* file.
+Instead this project contains a template.json file inside the *.local* folder.
+
+To use this template you must clone this repository and place the resulting folder inside *%localappdata%/UiPath/ProjectTemplates*.
+Restart Studio and you can create a new process from this template.
+
 ## Features
 ### Parallel Processing Data
 The main task of the framework is to parallize the workload of an Queue.
@@ -44,14 +51,14 @@ With this the main workflow doesnt need to be edited at all.
 
 To cast the object inside the dictionary back to its normal type you you the [Ctype](https://docs.microsoft.com/de-de/dotnet/visual-basic/language-reference/functions/ctype-function) function. (e.g. `Ctype(in_ProcessReferences('ExchangeConnection', ExchangeWebservice)`)
 
-This dictiory can be accessed from any XAML-File.
+This dictionary can be accessed from any XAML-File.
 
 ### Worker References
 Similar to process references the PABARE-Framework provides a third dictionary `WorkerReferences(Of String, Object)`.
 
 This dictionary can be used to store information inside a worker. The information never leaves the worker. Every worker has its own dictionary.
 
-This dictiory can be accessed from any XAML-File.
+This dictionary can be accessed from any XAML-File.
 
 ### Credential Management
 To improve the way to deal with credentials the PABARE-Framework introduce a new excel sheet named *Credentials*. In this sheet you can add your credential names. The credentials will be loaded at process start inside `InitAllSettings`.
