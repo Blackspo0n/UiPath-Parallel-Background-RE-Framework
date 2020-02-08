@@ -91,7 +91,7 @@
         </ui:AddTransactionItem>
       </If.Then>
       <If.Else>
-        <Assign DisplayName="Emptying TransactionItem" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign DisplayName="Emptying Transaction Item" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:QueueItem">[out_TransactionItem]</OutArgument>
           </Assign.To>

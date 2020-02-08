@@ -1,25 +1,26 @@
 {
-  "DefaultProjectDescription": "Process transactions in parallel.",
-  "DefaultProjectName": "Parallel Background Process",
+  "DefaultProjectDescription": "Process background tasks in parallel.",
+  "DefaultProjectName": "Parallel.Background.Process",
   "Dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.7.2]",
     "UiPath.System.Activities": "[19.10.1]"
   },
-  "Description": "This PABARE-Framework, based on the RE-Framework, is meant to process QueueItems in parallel. It is usefull when processes or parts of it intreacts with Webapis or other background stuff.",
-  "DisplayPriority": 0,
+  "Description": "Create a workflow which can process background tasks in parallel. Quite useful if you use it in combination with an Orchestrator queue.",
+  "DisplayPriority": 1,
   "ExceptionHandlerWorkflow": null,
-  "IconUri": "CustomProcessVBIcon",
+  "IconUri": "BackgroundProcessTemplateIcon",
   "IsBlank": false,
   "Label": "Prozess",
   "MainFile": "Main.xaml",
   "Name": "Parallel Background RE-Framework",
   "NewTemplateTitle": null,
   "PrivateFiles": null,
-  "OutputType": 0,
-  "ProjectProfile": 0,
-  "ExpressionLanguage": 0,
-  "SupportsPersistence": true,
+  "OutputType": "Process",
+  "ProjectProfile": "Developement",
+  "ExpressionLanguage": "VisualBasic",
+  "SupportsPersistence": false,
   "RequiresUserInteraction": false,
-  "AutoDispose": true
+  "AutoDispose": true,
+  "isPausable": false
 }

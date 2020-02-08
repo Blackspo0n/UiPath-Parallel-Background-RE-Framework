@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>903,738</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>903,778</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -85,7 +85,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get the next transaction to be processed." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="255,120" sap2010:WorkflowViewState.IdRef="State_4">
+    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get the next transaction to be processed." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="1350,1239" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
         <Sequence sap2010:Annotation.AnnotationText="Retrieve a new transaction data to be processed.&#xA;The TransactionNumber variable holds the current transaction number, and incrementing this variable means retrieving will make the next transaction to be retrieved. If a robot is retrying a failed transaction, this variable is not incremented until the maximum number of retry attempts is reached." DisplayName="Retrieve Data" sap:VirtualizedContainerService.HintSize="1304,821" sap2010:WorkflowViewState.IdRef="Sequence_25">
           <Sequence.Variables>
@@ -386,7 +386,7 @@
                 <Transition DisplayName="System Error" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">734,293.5 734,174.95 532,174.95</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">734,293.5 734,176.6 532,176.6</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">38</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -394,7 +394,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemError IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Worker Initialization" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="484,920" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Worker Initialization" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="259,92" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
                         <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="438,506" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
@@ -462,7 +462,7 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">273,126</av:Point>
-                          <av:Size x:Key="ShapeSize">259,88</av:Size>
+                          <av:Size x:Key="ShapeSize">259,92</av:Size>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           <x:Double x:Key="StateContainerWidth">225.01259433917596</x:Double>
                           <x:Double x:Key="StateContainerHeight">25</x:Double>
@@ -475,7 +475,7 @@
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
-                              <av:PointCollection x:Key="ConnectorLocation">402.5,215 402.5,245 402,245 402,334</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">402.5,218 402.5,248 402,248 402,334</av:PointCollection>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -487,7 +487,7 @@
                         <Transition DisplayName="System Error" sap:VirtualizedContainerService.HintSize="429.6,802.4" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">273,166.05 85,166.05 85,328.5</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">273,167.4 85,167.4 85,328.5</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">33</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -575,7 +575,7 @@
           </Transition.Action>
           <Transition.Condition>[TransactionItem IsNot Nothing]</Transition.Condition>
         </Transition>
-        <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="429.6,969.6" sap2010:WorkflowViewState.IdRef="Transition_7">
+        <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="450,562" sap2010:WorkflowViewState.IdRef="Transition_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:PointCollection x:Key="ConnectorLocation">287.25,454 287.25,484 142.6,484 142.6,447.5</av:PointCollection>
@@ -589,7 +589,7 @@
             <x:Reference>__ReferenceID1</x:Reference>
           </Transition.To>
           <Transition.Action>
-            <ui:LogMessage DisplayName="Log message (No more transations available)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Worker finished due to no more transaction data&quot;]" />
+            <ui:LogMessage DisplayName="Log message (No more transations available)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[String.Format(in_Config(&quot;LogMessage_WorkerThreadFinished&quot;).ToString, in_WorkerID)]" />
           </Transition.Action>
           <Transition.Condition>[TransactionItem Is Nothing]</Transition.Condition>
         </Transition>
