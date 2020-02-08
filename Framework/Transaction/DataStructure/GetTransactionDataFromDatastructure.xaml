@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionDataFromDatastructure" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scc="clr-namespace:System.Collections.Concurrent;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionDataFromDatastructure" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scc="clr-namespace:System.Collections.Concurrent;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. " Name="out_TransactionID" Type="OutArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
@@ -15,10 +15,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>649,1259</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>601,1018</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionDataFromDatastructure_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -41,10 +41,10 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
       <x:String>System.Collections.Concurrent</x:String>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -64,10 +64,9 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a blocking collection&#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;" DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="629,1159" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a Concurrent Queue&#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. " DisplayName="Get transaction data from datastructure" sap:VirtualizedContainerService.HintSize="581,918" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="Entry" />
     </Sequence.Variables>
@@ -77,7 +76,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[io_TransactionData.Count &gt; 0]" DisplayName="If more items" sap:VirtualizedContainerService.HintSize="587,434" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[io_TransactionData.Count &gt; 0 AndAlso io_TransactionData.TryDequeue(Entry)]" DisplayName="Is data left for this worker?" sap:VirtualizedContainerService.HintSize="539,208" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -85,27 +84,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="280,286" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <InvokeMethod DisplayName="Get Object from Queue" sap:VirtualizedContainerService.HintSize="238,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="TryDequeue">
-            <InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="scc:ConcurrentQueue(x:Object)">[io_TransactionData]</InArgument>
-            </InvokeMethod.TargetObject>
-            <OutArgument x:TypeArguments="x:Object">[Entry]</OutArgument>
-          </InvokeMethod>
-          <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Transaction Item" sap:VirtualizedContainerService.HintSize="238,22" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="[in_Config(&quot;Framework_OrchestratorQueueName&quot;).ToString]" TransactionItem="[out_TransactionItem]">
-            <ui:AddTransactionItem.TransactionInformation>
-              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
-            </ui:AddTransactionItem.TransactionInformation>
-          </ui:AddTransactionItem>
-        </Sequence>
+        <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Start the transaction" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="[in_Config(&quot;Framework_OrchestratorQueueName&quot;).ToString]" TransactionItem="[out_TransactionItem]">
+          <ui:AddTransactionItem.TransactionInformation>
+            <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+          </ui:AddTransactionItem.TransactionInformation>
+        </ui:AddTransactionItem>
       </If.Then>
       <If.Else>
-        <Assign DisplayName="Assign empty TransactionItem" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign DisplayName="Emptying TransactionItem" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:QueueItem">[out_TransactionItem]</OutArgument>
           </Assign.To>
@@ -115,17 +101,17 @@
         </Assign>
       </If.Else>
     </If>
-    <If Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new Item is fetched Grab it's significant data for logging" sap:VirtualizedContainerService.HintSize="587,506" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new Item is fetched Grab it's significant data for logging" sap:VirtualizedContainerService.HintSize="539,506" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence sap2010:Annotation.AnnotationText="Write data to the added fields that identify the Transaction" DisplayName="Write Transaction info in Logging Fields" sap:VirtualizedContainerService.HintSize="380,358" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap2010:Annotation.AnnotationText="Write data to the added fields that identify the Transaction" DisplayName="Write Transaction info in logging fields" sap:VirtualizedContainerService.HintSize="380,358" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="338,66" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[String.Format(in_Config(&quot;LogMessage_GetTransactionData&quot;).ToString, out_TransactionItem.Reference, in_WorkerID) &amp; &quot; (Tranaction left: &quot; &amp; io_TransactionData.Count &amp; &quot;)&quot;]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:ReportStatus DisplayName="Update job status with remaining count " sap:VirtualizedContainerService.HintSize="338,66" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[String.Format(in_Config(&quot;LogMessage_GetTransactionData&quot;).ToString, out_TransactionItem.Reference, in_WorkerID) &amp; &quot; (Tranaction left: &quot; &amp; io_TransactionData.Count &amp; &quot;)&quot;]" />
+          <ui:MultipleAssign DisplayName="Set Logging fields" sap:VirtualizedContainerService.HintSize="338,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
