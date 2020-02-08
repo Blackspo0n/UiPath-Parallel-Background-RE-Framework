@@ -1,13 +1,12 @@
 {
-  "DefaultProjectDescription": "UiPath REFramework Template",
+  "DefaultProjectDescription": "Process transactions in parallel.",
   "DefaultProjectName": "Parallel Background Process",
   "Dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.7.2]",
-    "UiPath.Mail.Activities": "[1.7.2]",
     "UiPath.System.Activities": "[19.10.1]"
   },
-  "Description": "This Framework, based on the RE-Framework, is meant to process QueueItems in parallel. It is usefull when processes or parts of it intreacts with Webapis or other background stuff.",
+  "Description": "This PABARE-Framework, based on the RE-Framework, is meant to process QueueItems in parallel. It is usefull when processes or parts of it intreacts with Webapis or other background stuff.",
   "DisplayPriority": 0,
   "ExceptionHandlerWorkflow": null,
   "IconUri": "CustomProcessVBIcon",
