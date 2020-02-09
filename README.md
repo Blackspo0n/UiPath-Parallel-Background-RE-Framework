@@ -1,4 +1,4 @@
-# Parallel Background ReFrameWork Template
+# Parallel Background RE-Framework Template
 UiPath Workflows that doesn´t need to interact with ui elements can parallize the workload.
 For this purpose I invented the PABARE-Framework (acronym).
 
