@@ -10,8 +10,8 @@ It is build on top of the [RE-Framework](https://github.com/UiPath/ReFrameWork) 
 This Framework is a template project. It doesn´t have a *project.json* file.
 Instead this project contains a template.json file inside the *.local* folder.
 
-To use this template you must clone this repository and place the resulting folder inside *%localappdata%/UiPath/ProjectTemplates*.
-Restart Studio and you can create a new process from this template.
+To use this template you can download the latest release from this repository and unzip the release into *%localappdata%/UiPath/ProjectTemplates* folder.
+Restart Studio and you can create a new process from this template from now on.
 
 ## Features
 ### Parallel Processing Data
