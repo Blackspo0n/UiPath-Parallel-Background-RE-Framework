@@ -29,10 +29,10 @@ It invokes *Framework/Transaction/Queue/GetTransactionDataFromQueue.xaml*.
 
 > You have to set `Framework_OrchestratorQueueName` to a valid queue name.
 
-#### Transaction Data From BlocklingCollection.
-If `Framework_UseOrchestratorQueue`is set to false the Framework doesnt look into  the orchestrator queue.
+#### Transaction data from a conurrent queue.
+If `Framework_UseOrchestratorQueue`is set to false the Framework doesnt look into the orchestrator queue.
 
-The PABARE-Framework invokes *Framework/Transaction/DataStructure/InitTransactionData.xaml*. In this file you can initialize the ConcurrentQueue from an datasource your choise. One entry in the ConcurrentQueue is one TranactionItem. Please keep in mind changing the ConcurrentQueue to anything else that isn´t a thread-safe collection can cause unexcepted behavior.
+The PABARE-Framework invokes *Framework/Transaction/DataStructure/InitTransactionData.xaml*. In this file you can initialize the ConcurrentQueue from a datasource your choise. One entry in the ConcurrentQueue is one TranactionItem. Please keep in mind changing the ConcurrentQueue to anything else that isn´t a thread-safe collection can cause unexcepted behavior.
 
 If you filled the ConcurrentQueue the workers invoke the file *Framework/Transaction/DataStructure/InitTransactionData.xaml*.
 In this file you have to create an QueueItem with the needed ItemInformation. Use "Add Transaction Item" activity to do so.
