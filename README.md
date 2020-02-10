@@ -6,7 +6,7 @@ This Framework can spawn workers up to a configurable limit. It´s datasource fo
 
 It is build on top of the [RE-Framework](https://github.com/UiPath/ReFrameWork) and tries to improve things that IMHO the RE-Framework lacks behind.
 
-## How To Install
+## How to install
 This Framework is a template project. It doesn´t have a *project.json* file.
 Instead this project contains a template.json file inside the *.local* folder.
 
@@ -14,7 +14,7 @@ To use this template you can download the latest release from this repository an
 Restart Studio and you can create a new process from this template from now on.
 
 ## Features
-### Parallel Processing Data
+### Processing data in parallel
 The main task of the framework is to parallize the workload of an Queue.
 For this porpose this Framework introduced a Config Parameter `BusinessProcess_ParallelExecutions` (Excel file in sheet *Constants*). This parameter, as the name already implies, is used to control the number of workers.
 
@@ -23,7 +23,7 @@ It default value is set to 10. You may tweak this value to get better results.
 The PABARE-Framework can consume an queue from Orchestrator or can take concurrent from a ConcurrentQueue.
 You can chose between this two mechanism by toggle the option `Framework_UseOrchestratorQueue`
 
-#### Transaction Data from Queue
+#### Transaction data from an Orchestrator queue
 If `Framework_UseOrchestratorQueue`is set to true the Framework look into an orchestrator queue.
 It invokes *Framework/Transaction/Queue/GetTransactionDataFromQueue.xaml*.  
 
@@ -40,7 +40,7 @@ In this file you have to create an QueueItem with the needed ItemInformation. Us
 > Remember, you have to set `Framework_OrchestratorQueueName` to a valid queue name.
 >> If you want to work completly without orchestrator queues I recommend you to create an QueueItem by hand (`new UiPath.Core.QueueItem()`). This is much less work than changing "QueueItem" to DataRow or something like that and helps to integrate the process into a queue in an easy manner if the orchestrator comes avialable.
 
-### Process References
+### Process references
 One big downside of the original RE-Framework is, when you want to work with persistent connections or even with window variables you have to add the variable through the whole workflow or add it to the *Config* dictionary.
 
 To prevent this the PABARE-Framework uses a second dictionary `ProcessReferences(Of String, Object)`.
@@ -53,19 +53,19 @@ To cast the object inside the dictionary back to its normal type you you the [Ct
 
 This dictionary can be accessed from any XAML-File.
 
-### Worker References
+### Worker references
 Similar to process references the PABARE-Framework provides a third dictionary `WorkerReferences(Of String, Object)`.
 
 This dictionary can be used to store information inside a worker. The information never leaves the worker. Every worker has its own dictionary.
 
 This dictionary can be accessed from any XAML-File.
 
-### Credential Management
+### Credential management
 To improve the way to deal with credentials the PABARE-Framework introduce a new excel sheet named *Credentials*. In this sheet you can add your credential names. The credentials will be loaded at process start inside `InitAllSettings`.
 
 The credentials are stored inside a dictionary. To make modeling with the framework userfriendly the framework uses [System.Net.NetworkCredential](https://docs.microsoft.com/en-us/dotnet/api/system.net.networkcredential?view=netframework-4.8) to store the information inside the dictionary (`dictionary(Of String, System.Net.NetworkCredential)`. With this .NET Class the user can retrieve a password and a password as SecureString as the same time.
 
-### Log Messages
+### Log messages
 Log messages generated from the PABARE-Framework are placed in the "Messages" sheet to make it more clear what these messages meant for.
 
 The old way the Framework generated this messages was to concat the dynamic part to the static part of the message.
@@ -77,7 +77,7 @@ Automating ui´s arent really supported.
  2. Debugging a whole process can be quite funny. UiPath Studio isn´t build with parallism in mind. So if you stop at a breakpoint Studio shows you the last executed activity which isn´t the activity you may have been expected.
  3. If you choose a big number for `BusinessProcess_ParallelExecutions` you may become issues with the connectivity to orchestrator and the service you want to automate.
 
-## Development Phase
+## Development phase
 This ist still an early stage. Expect bugs and typos in this project.
 
 The documentation need to be extended as well.
