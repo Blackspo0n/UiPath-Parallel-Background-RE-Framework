@@ -64,6 +64,6 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Inilialize Process)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[in_Config(&quot;LogMessage_InitializeProcessDataProcessData&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log message (Inilialize Process)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[in_Config(&quot;LogMessage_InitializeProcessData&quot;).ToString]" />
   </Sequence>
 </Activity>
