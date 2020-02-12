@@ -3,7 +3,7 @@
     <x:Property sap2010:Annotation.AnnotationText="Overall counter for tests." Name="in_TestCounter" Type="InArgument(x:Int32)" />
     <x:Property sap2010:Annotation.AnnotationText="Counter for tests that failed." Name="io_FailedTestsCounter" Type="InOutArgument(x:Int32)" />
     <x:Property sap2010:Annotation.AnnotationText="Filepath to which logs about tests should be written." Name="in_TestLogFile" Type="InArgument(x:String)" />
-    <x:Property sap2010:Annotation.AnnotationText="Status of the test to be written to the report." Name="out_Status" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Status of the test to be written to the report." Name="out_Status" Type="OutArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Counter for tests that succeeded." Name="io_PassedTestsCounter" Type="InOutArgument(x:Int32)" />
     <x:Property sap2010:Annotation.AnnotationText="Expected outcome of the test. It can be &quot;Success&quot;, &quot;AppEx&quot; or &quot;BRE&quot;." Name="in_ExpectedOutcome" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Filename of the workflow that implements a test." Name="in_WorkflowFilename" Type="InArgument(x:String)" />
@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>859,882</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>859,886</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RunAllTests_Logging_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,7 +62,7 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Log the result of running the test, based on the type of test and its outcome." DisplayName="Run All Tests - Logging" sap:VirtualizedContainerService.HintSize="839,782" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="Log the result of running the test, based on the type of test and its outcome." DisplayName="Run All Tests - Logging" sap:VirtualizedContainerService.HintSize="839,786" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

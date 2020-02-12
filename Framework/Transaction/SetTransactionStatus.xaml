@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>694,1376</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>694,1407</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SetTransactionStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,10 +65,9 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Set and log the transaction's status along with extra log fields. &#xA;There can be three possible statuses: Success, Business Rule Exception and System Error (Application Exception).&#xA;&#xA;Business Rule Exception characterizes an irregular situation according to the process's rules and prevents the transaction to be processed. The transaction is not retried in this case, since the result will be the same until the problem that causes the exception is solved.&#xA;For example, it can be considered a BusinessRuleException if a process expects to read an email's attachment, but the sender didn't attach any file. In this case, immediate retries of the transaction will not yield a different result.&#xA;&#xA;On the other hand, system errors are characterized by exceptions whose types are different than BusinessRuleException. When this kind of exception happens, the transaction item can be retried after closing and reopening the applications involved in the process. The rationale behind this is that the exception was caused by a problem in the applications, which might be solved by restarting them.&#xA;&#xA;If Orchestrator queues are the source of transactions, the Set Transaction Status activity is used to update the status. In addition, the retry mechanism is also implemented by Orchestrator.&#xA;&#xA;If Orchestrator queues are not used, the status can be set, for example, by writing to a specific column in a spreadsheet. In such cases, the retry mechanism is covered by the framework and the number of retries is defined in the configuration file.&#xA;&#xA;At the end, io_TransactionNumber is incremented, which makes the framework get the next transaction to be processed." DisplayName="Set Transaction Status" sap:VirtualizedContainerService.HintSize="674,1276" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+  <Flowchart sap2010:Annotation.AnnotationText="Set and log the transaction's status along with extra log fields. &#xA;There can be three possible statuses: Success, Business Rule Exception and System Error (Application Exception).&#xA;&#xA;Business Rule Exception characterizes an irregular situation according to the process's rules and prevents the transaction to be processed. The transaction is not retried in this case, since the result will be the same until the problem that causes the exception is solved.&#xA;For example, it can be considered a BusinessRuleException if a process expects to read an email's attachment, but the sender didn't attach any file. In this case, immediate retries of the transaction will not yield a different result.&#xA;&#xA;On the other hand, system errors are characterized by exceptions whose types are different than BusinessRuleException. When this kind of exception happens, the transaction item can be retried after closing and reopening the applications involved in the process. The rationale behind this is that the exception was caused by a problem in the applications, which might be solved by restarting them.&#xA;&#xA;If Orchestrator queues are the source of transactions, the Set Transaction Status activity is used to update the status. In addition, the retry mechanism is also implemented by Orchestrator.&#xA;&#xA;If Orchestrator queues are not used, the status can be set, for example, by writing to a specific column in a spreadsheet. In such cases, the retry mechanism is covered by the framework and the number of retries is defined in the configuration file.&#xA;&#xA;At the end, io_TransactionNumber is incremented, which makes the framework get the next transaction to be processed." DisplayName="Set Transaction Status" sap:VirtualizedContainerService.HintSize="674,1307" sap2010:WorkflowViewState.IdRef="Flowchart_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -76,7 +75,7 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <x:Double x:Key="Width">640</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 299.8,107.5 299.8,136.4</av:PointCollection>
-        <x:Double x:Key="Height">883.03200000000015</x:Double>
+        <x:Double x:Key="Height">914</x:Double>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
@@ -112,7 +111,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <If Condition="[in_TransactionItem isNot Nothing AndAlso (in_TransactionItem.GetType is GetType(Uipath.Core.QueueItem))]" DisplayName="If TransactionItem is a QueueItem (Success)" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set transaction status (Successful)" ErrorType="Application" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_4" Status="Successful" TransactionItem="[Ctype(in_TransactionItem, QueueItem)]">
+                <ui:SetTransactionStatus Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" ContinueOnError="True" DisplayName="Set transaction status (Successful)" ErrorType="Application" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_4" Status="Successful" TransactionItem="[Ctype(in_TransactionItem, QueueItem)]">
                   <ui:SetTransactionStatus.Analytics>
                     <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                   </ui:SetTransactionStatus.Analytics>
@@ -159,7 +158,7 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">120,717</av:Point>
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">220,783 220,850 240,850</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">220,783 220,865.5 240,865.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <Sequence DisplayName="Increment transaction index and reset retries" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
@@ -200,10 +199,10 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">240,817</av:Point>
-                      <av:Size x:Key="ShapeSize">200,66</av:Size>
+                      <av:Size x:Key="ShapeSize">200,97</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap2010:Annotation.AnnotationText="Only for cosmetic" DisplayName="End of Flowchart" sap:VirtualizedContainerService.HintSize="200,110" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence sap2010:Annotation.AnnotationText="Only for cosmetic" DisplayName="End of Flowchart" sap:VirtualizedContainerService.HintSize="200,97" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -249,7 +248,7 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <If Condition="[in_TransactionItem isNot Nothing AndAlso (in_TransactionItem.GetType is GetType(Uipath.Core.QueueItem))]" DisplayName="If TransactionItem is a QueueItem (BusinessRuleException)" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_3">
                   <If.Then>
-                    <ui:SetTransactionStatus ContinueOnError="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" Details="[String.Format(in_Config(&quot;LogMessage_BusinessRuleExceptionDetails&quot;).ToString, in_BusinessRuleException.Source, in_BusinessRuleException.StackTrace)]" DisplayName="Set transaction status (BusinessRuleException status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_2" Reason="[in_BusinessRuleException.Message]" Status="Failed" TransactionItem="[Ctype(in_TransactionItem, QueueItem)]">
+                    <ui:SetTransactionStatus ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" ContinueOnError="True" Details="[String.Format(in_Config(&quot;LogMessage_BusinessRuleExceptionDetails&quot;).ToString, in_BusinessRuleException.Source, in_BusinessRuleException.StackTrace)]" DisplayName="Set transaction status (BusinessRuleException status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_2" Reason="[in_BusinessRuleException.Message]" Status="Failed" TransactionItem="[Ctype(in_TransactionItem, QueueItem)]">
                       <ui:SetTransactionStatus.Analytics>
                         <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                       </ui:SetTransactionStatus.Analytics>
@@ -301,10 +300,10 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">440,471.6</av:Point>
                   <av:Size x:Key="ShapeSize">200,153</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">540,624.6 540,850 440,850</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">540,624.6 540,865.5 440,865.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a system error occurs during the process, the transaction item's status is updated as Failed (Application)." DisplayName="System Error" sap:VirtualizedContainerService.HintSize="1156,1487" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence sap2010:Annotation.AnnotationText="If a system error occurs during the process, the transaction item's status is updated as Failed (Application)." DisplayName="System Error" sap:VirtualizedContainerService.HintSize="1156,1491" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="QueueRetry" />
                 </Sequence.Variables>
@@ -338,7 +337,7 @@
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:SetTransactionStatus ContinueOnError="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" Details="[String.Format(in_Config(&quot;LogMessage_ApplicationExceptionDetails&quot;).ToString, in_SystemError.Source, in_SystemError.StackTrace)]" DisplayName="Set transaction status (SystemError)" ErrorType="Application" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_3" Reason="[in_SystemError.Message]" Status="Failed" TransactionItem="[CType(in_TransactionItem, QueueItem)]">
+                      <ui:SetTransactionStatus ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" ContinueOnError="True" Details="[String.Format(in_Config(&quot;LogMessage_ApplicationExceptionDetails&quot;).ToString, in_SystemError.Source, in_SystemError.StackTrace)]" DisplayName="Set transaction status (SystemError)" ErrorType="Application" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_3" Reason="[in_SystemError.Message]" Status="Failed" TransactionItem="[CType(in_TransactionItem, QueueItem)]">
                         <ui:SetTransactionStatus.Analytics>
                           <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                         </ui:SetTransactionStatus.Analytics>
