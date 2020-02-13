@@ -17,7 +17,7 @@ Restart Studio and you can create a new process from this template from now on.
 ### Processing data in parallel
 The main task of PABARE-Framework is to parallize the workload of an queue.
 
-For this porpose PABARE-Framework introduced a config parameter `BusinessProcess_ParallelExecutions` (Excel file in sheet *Constants*). This parameter, as the name already implies, is used to control the number of workers.
+For this purpose PABARE-Framework introduced a config parameter `BusinessProcess_ParallelExecutions` (Excel file in sheet *Constants*). This parameter, as the name already implies, is used to control the number of workers.
 
 It default value is set to 10. You may tweak this value to get better results.
 
