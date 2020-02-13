@@ -50,7 +50,7 @@ In this you can store e.g. a persistent database connection, a connection from t
 This dictionary can be accessed from all worker (not thread safe. I do not recommend to write to it from inside of a worker).
 With the inroduction of this dictionary the main workflow doesn´t need to be edited at all.
 
-To cast the objectw inside the dictionary back to its normal type you can use the [Ctype](https://docs.microsoft.com/de-de/dotnet/visual-basic/language-reference/functions/ctype-function) function. (e.g. `Ctype(in_ProcessReferences('ExchangeConnection', ExchangeWebservice)`)
+To cast the object inside the dictionary back to its normal type you can use the [Ctype](https://docs.microsoft.com/de-de/dotnet/visual-basic/language-reference/functions/ctype-function) function. (e.g. `Ctype(in_ProcessReferences('ExchangeConnection', ExchangeWebservice)`)
 
 This dictionary can be accessed from any XAML-File.
 
@@ -74,7 +74,7 @@ To be more open to other languages PABARE-framework uses the function [String.Fo
 
 ## Downsides
  1. As the name implies PABARE-Framework should only be used if a process or sub process doesn´t require any ui interaction.
-Automating ui´s aren´t really supported bur not impossible.
+Automating ui´s aren´t really supported but not impossible.
  2. Debugging a whole process can be quite funny. UiPath Studio isn´t build with parallism in mind. So if you stop at a breakpoint Studio shows you the last executed activity which isn´t the activity you may have been expected.
  3. If you choose a big number for `BusinessProcess_ParallelExecutions` you may become issues with the connectivity to orchestrator and the service you want to automate.
 
